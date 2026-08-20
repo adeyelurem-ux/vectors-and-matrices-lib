@@ -18,7 +18,7 @@ struct VectorN {
     }
 
     //Compound Arithmetic Operators
-    [[nodiscard]] VectorN operator+=(const VectorN& rhs) {
+    [[nodiscard]] constexpr VectorN operator+=(const VectorN& rhs) {
         size_t i = 0;
         for (const double val : data) {
             data[i] += rhs.data[i];
@@ -29,7 +29,7 @@ struct VectorN {
     }
 
 
-    [[nodiscard]] VectorN operator -=(const VectorN& rhs) {
+    [[nodiscard]] constexpr VectorN operator -=(const VectorN& rhs) {
         size_t i = 0;
         for (double val : data) {
             val -= rhs.data[i];
@@ -40,7 +40,7 @@ struct VectorN {
     }
 
 
-    [[nodiscard]] VectorN operator *=(const double scalar) {
+    [[nodiscard]] constexpr VectorN operator *=(const double scalar) {
         size_t i = 0;
         for (const double val : data) {
             data[i] *= scalar;
@@ -51,10 +51,36 @@ struct VectorN {
     }
 
 
-    [[nodiscard]] VectorN operator /=(const double scalar) {
+    [[nodiscard]] constexpr VectorN operator /=(const double scalar) {
         double inv = 1.0/scalar;
 
         return *this *= inv;
+    }
+
+
+    //Binary Arithmetic Operators
+    [[nodiscard]] friend constexpr VectorN operator+(const VectorN& lhs, const VectorN& rhs) {
+        return lhs += rhs;
+    }
+
+
+    [[nodiscard]] friend constexpr VectorN operator-(const VectorN& lhs, const VectorN& rhs) {
+        return lhs -= rhs;
+    }
+
+
+    [[nodiscard]] friend constexpr VectorN operator*(const VectorN& lhs, const double scalar) {
+        return lhs *= scalar;
+    }
+
+
+    [[nodiscard]] friend constexpr VectorN operator*(const double scalar, const VectorN& rhs) {
+        return rhs *= scalar;
+    }
+
+
+    [[nodiscard]] friend constexpr VectorN operator/(const VectorN& lhs, const double scalar) {
+        return lhs /= scalar;
     }
 };
 
