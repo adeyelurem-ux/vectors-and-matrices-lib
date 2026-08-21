@@ -6,6 +6,7 @@
 #include "../include/VectorN.h"
 
 //Vector Arithmetic Tests
+
 TEST(VectorArithmetic, 2DCompoundAddition_ReturnsSum) {
     VectorN<2> v1 ({1, 2});
     const VectorN<2> v2 ({2, 1});
@@ -86,4 +87,27 @@ TEST(VectorArithmetic, 2DNegation_ReturnsNegative) {
     const VectorN<2> v2 = {-1, -1};
 
     EXPECT_EQ((-v1), v2);
+}
+
+//Vector Operator Tests
+
+TEST(VectorOperator, DotProduct_ReturnsScalarProduct) {
+    const VectorN<3> v1 = {1, 1, 1};
+
+    EXPECT_EQ(v1.dot(v1), 3);
+}
+
+TEST(VectorOperator, CrossProduct_ReturnsVectorProduct) {
+    const VectorN<3> i = {1, 0, 0};
+    const VectorN<3> j = {0, 1, 0};
+    const VectorN<3> k = {0, 0, 1};
+
+    EXPECT_EQ(i.cross(j), k);
+}
+
+TEST(VectorOperator, Normalise_ReturnsUnitVector) {
+    VectorN<2> v1 = {2, 2};
+    v1.normalise();
+
+    EXPECT_DOUBLE_EQ(v1.magnitudeSqd(), 1);
 }

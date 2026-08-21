@@ -92,9 +92,49 @@ struct VectorN {
         return true;
     }
 
+
     constexpr VectorN<N> operator-() {
         *this *= -1;
         return *this;
+    }
+
+    [[nodiscard]] constexpr double magnitudeSqd() const{
+        double result = 0;
+
+        for (const double i : data) {
+            result += std::pow(i, 2);
+        }
+
+        return result;
+    }
+
+    [[nodiscard]] constexpr VectorN<N> unitVector() const {
+        return *this / std::sqrt(magnitudeSqd());
+    }
+
+    constexpr VectorN<N> normalise() {
+        *this /= std::sqrt(magnitudeSqd());
+
+        return *this;
+    }
+
+
+    [[nodiscard]] constexpr double dot(const VectorN& other) const {
+        double result = 0;
+
+        for (size_t i = 0; i < data.size(); i++) {
+            result += (data[i] * other.data[i]);
+        }
+
+        return result;
+    }
+
+    [[nodiscard]] constexpr VectorN<3> cross(const VectorN& other)  const {
+        return VectorN<3> {
+            (data[1] * other.data[2]) - (data[2] * other.data[1]),
+            (data[2] * other.data[0]) - (data[0] * other.data[2]),
+            (data[0] * other.data[1]) - (data[1] * other.data[0])
+        };
     }
 };
 
