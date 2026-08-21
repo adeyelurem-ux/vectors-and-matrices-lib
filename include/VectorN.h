@@ -5,17 +5,21 @@
 #ifndef VECTORS_AND_MATRICES_LIB_VECTOR_H
 #define VECTORS_AND_MATRICES_LIB_VECTOR_H
 
-#include<vector>
+#include<array>
 
 template<size_t N>
 
 struct VectorN {
-    std::vector<double> data;
+    std::array<double, N> data{};
     VectorN() = default;
 
     VectorN(const std::initializer_list<double>& list) {
-        data.reserve(N);
-        data = list;
+        std::size_t i = 0;
+        for (double val : list) {
+            if (i < N) {
+                data[i++] = val;
+            }
+        }
     }
 
     //Compound Arithmetic Operators
@@ -102,7 +106,7 @@ struct VectorN {
         double result = 0;
 
         for (const double i : data) {
-            result += std::pow(i, 2);
+            result += i * i;
         }
 
         return result;
