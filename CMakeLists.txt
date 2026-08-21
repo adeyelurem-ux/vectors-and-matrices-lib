@@ -14,7 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 enable_testing()
 
 # 1. Header-Only Library Setup
-add_library(vectors_and_matrices_lib INTERFACE)
+add_library(vectors_and_matrices_lib INTERFACE
+        include/VectorN.h
+        include/Matrix.h)
 
 target_include_directories(vectors_and_matrices_lib
         INTERFACE
@@ -40,6 +42,7 @@ FetchContent_MakeAvailable(googletest)
 # 3. Test Executable
 add_executable(LinearAlgebraTests
         tests/test_vectors.cpp
+        tests/test_matrices.cpp
 )
 
 target_link_libraries(LinearAlgebraTests
