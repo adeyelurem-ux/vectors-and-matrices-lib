@@ -60,27 +60,27 @@ struct VectorN {
 
 
     //Binary Arithmetic Operators
-    [[nodiscard]] friend constexpr VectorN<N> operator+(const VectorN& lhs, const VectorN& rhs) {
+    [[nodiscard]] friend constexpr VectorN<N> operator+(VectorN lhs, const VectorN& rhs) {
         return lhs += rhs;
     }
 
 
-    [[nodiscard]] friend constexpr VectorN<N> operator-(const VectorN& lhs, const VectorN& rhs) {
+    [[nodiscard]] friend constexpr VectorN<N> operator-(VectorN lhs, const VectorN& rhs) {
         return lhs -= rhs;
     }
 
 
-    [[nodiscard]] friend constexpr VectorN<N> operator*(const VectorN& lhs, const double scalar) {
+    [[nodiscard]] friend constexpr VectorN<N> operator*(VectorN lhs, const double scalar) {
         return lhs *= scalar;
     }
 
 
-    [[nodiscard]] friend constexpr VectorN<N> operator*(const double scalar, const VectorN& rhs) {
-        return rhs *= scalar;
+    [[nodiscard]] friend constexpr VectorN<N> operator*(const double scalar,  VectorN rhs) {
+        return rhs * scalar;
     }
 
 
-    [[nodiscard]] friend constexpr VectorN<N> operator/(const VectorN& lhs, const double scalar) {
+    [[nodiscard]] friend constexpr VectorN<N> operator/(VectorN lhs, const double scalar) {
         return lhs /= scalar;
     }
 
