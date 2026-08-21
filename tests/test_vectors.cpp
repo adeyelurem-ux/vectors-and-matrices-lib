@@ -79,3 +79,10 @@ TEST(Vectors, 2DBinaryDivision_ReturnsProduct) {
 
     EXPECT_EQ((v1 / 2), v2);
 }
+
+TEST(Vectors, 2DNegation_ReturnsNegative) {
+    VectorN<2> v1 = {1, 1};
+    const VectorN<2> v2 = {-1, -1};
+
+    EXPECT_EQ((-v1), v2);
+}

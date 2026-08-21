@@ -91,6 +91,11 @@ struct VectorN {
 
         return true;
     }
+
+    constexpr VectorN<N> operator-() {
+        *this *= -1;
+        return *this;
+    }
 };
 
 #endif //VECTORS_AND_MATRICES_LIB_VECTOR_H
