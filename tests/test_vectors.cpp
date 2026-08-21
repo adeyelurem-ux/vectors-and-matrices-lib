@@ -104,3 +104,10 @@ TEST(VectorOperator, CrossProduct_ReturnsVectorProduct) {
 
     EXPECT_EQ(i.cross(j), k);
 }
+
+TEST(VectorOperator, Normalise_ReturnsUnitVector) {
+    VectorN<2> v1 = {2, 2};
+    v1.normalise();
+
+    EXPECT_DOUBLE_EQ(v1.magnitudeSqd(), 1);
+}
