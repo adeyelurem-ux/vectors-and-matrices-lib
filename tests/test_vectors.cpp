@@ -5,7 +5,8 @@
 #include <gtest/gtest.h>
 #include "../include/VectorN.h"
 
-TEST(Vectors, 2DCompoundAddition_ReturnsSum) {
+//Vector Arithmetic Tests
+TEST(VectorArithmetic, 2DCompoundAddition_ReturnsSum) {
     VectorN<2> v1 ({1, 2});
     const VectorN<2> v2 ({2, 1});
 
@@ -16,7 +17,7 @@ TEST(Vectors, 2DCompoundAddition_ReturnsSum) {
     EXPECT_EQ(v1, v3);
 }
 
-TEST(Vectors, 2DCompoundSubtraction_ReturnsSum) {
+TEST(VectorArithmetic, 2DCompoundSubtraction_ReturnsSum) {
     VectorN<2> v1 ({1, 1});
     const VectorN<2> v2 ({1, 1});
 
@@ -27,7 +28,7 @@ TEST(Vectors, 2DCompoundSubtraction_ReturnsSum) {
     EXPECT_EQ(v1, v3);
 }
 
-TEST(Vectors, 2DCompoundMultiplication_ReturnsProduct) {
+TEST(VectorArithmetic, 2DCompoundMultiplication_ReturnsProduct) {
     VectorN<2> v1 ({1, 1});
 
     v1 *= 2;
@@ -37,7 +38,7 @@ TEST(Vectors, 2DCompoundMultiplication_ReturnsProduct) {
     EXPECT_EQ(v1, v2);
 }
 
-TEST(Vectors, 2DCompoundDivision_ReturnsProduct) {
+TEST(VectorArithmetic, 2DCompoundDivision_ReturnsProduct) {
     VectorN<2> v1 ({1, 1});
 
     v1 /= 2;
@@ -47,7 +48,7 @@ TEST(Vectors, 2DCompoundDivision_ReturnsProduct) {
     EXPECT_EQ(v1, v2);
 }
 
-TEST(Vectors, 2DBinaryAddition_ReturnsSum) {
+TEST(VectorArithmetic, 2DBinaryAddition_ReturnsSum) {
     const VectorN<2> v1 = {1, 1};
     const VectorN<2> v2 = {1, 1};
 
@@ -56,7 +57,7 @@ TEST(Vectors, 2DBinaryAddition_ReturnsSum) {
     EXPECT_EQ(v3, (v1+v2));
 }
 
-TEST(Vectors, 2DBinarySubtraction_ReturnsSum) {
+TEST(VectorArithmetic, 2DBinarySubtraction_ReturnsSum) {
     const VectorN<2> v1 = {1, 1};
     const VectorN<2> v2 = {1, 1};
 
@@ -65,7 +66,7 @@ TEST(Vectors, 2DBinarySubtraction_ReturnsSum) {
     EXPECT_EQ(v3, (v1-v2));
 }
 
-TEST(Vectors, 2DBinaryMultiplication_ReturnsProduct) {
+TEST(VectorArithmetic, 2DBinaryMultiplication_ReturnsProduct) {
     const VectorN<2> v1 = {1, 1};
     const VectorN<2> v2 = {2, 2};
 
@@ -73,14 +74,14 @@ TEST(Vectors, 2DBinaryMultiplication_ReturnsProduct) {
     EXPECT_EQ((2 * v1), v2);
 }
 
-TEST(Vectors, 2DBinaryDivision_ReturnsProduct) {
+TEST(VectorArithmetic, 2DBinaryDivision_ReturnsProduct) {
     const VectorN<2> v1 = {1, 1};
     const VectorN<2> v2 = {0.5, 0.5};
 
     EXPECT_EQ((v1 / 2), v2);
 }
 
-TEST(Vectors, 2DNegation_ReturnsNegative) {
+TEST(VectorArithmetic, 2DNegation_ReturnsNegative) {
     VectorN<2> v1 = {1, 1};
     const VectorN<2> v2 = {-1, -1};
 
