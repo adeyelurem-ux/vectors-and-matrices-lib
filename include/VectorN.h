@@ -98,8 +98,7 @@ struct VectorN {
 
 
     constexpr VectorN<N> operator-() {
-        *this *= -1;
-        return *this;
+        return *this * -1;
     }
 
     [[nodiscard]] constexpr double magnitudeSqd() const{
