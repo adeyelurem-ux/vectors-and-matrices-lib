@@ -111,7 +111,7 @@ struct VectorN {
         return result;
     }
 
-    [[nodiscard]] constexpr VectorN<N> unitVector() const {
+    [[nodiscard]] VectorN<N> unitVector() const {
         return *this / std::sqrt(magnitudeSqd());
     }
 
