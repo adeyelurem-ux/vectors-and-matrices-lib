@@ -97,7 +97,7 @@ struct VectorN {
     }
 
 
-    constexpr VectorN<N> operator-() {
+    constexpr VectorN<N> operator-() const{
         return *this * -1;
     }
 

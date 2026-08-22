@@ -72,3 +72,11 @@ TEST(MatrixArithmetic, BinaryScalarDivision_ReturnsProduct) {
     Matrix<2, 2> B({2, 2, 2, 2});
     EXPECT_EQ(A / 0.5, B);
 }
+
+TEST(MatrixArithmetic, BinaryMatrixMultiplication_ReturnsProduct) {
+    Matrix<2, 2> A({0, -1, 1, 0});
+    Matrix<2, 2> B({0, 1, -1, 0});
+    Matrix<2, 2> I({1, 0, 0, 1});
+
+    EXPECT_EQ(B * A, I);
+}
